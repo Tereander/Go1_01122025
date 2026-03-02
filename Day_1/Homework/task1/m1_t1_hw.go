@@ -43,7 +43,7 @@ func main() {
 		fmt.Println("Введите расход топлива от 5л./100 км до 25л./100 км")
 		fmt.Scan(&consumption)
 
-		if 5 < consumption && consumption < 100 {
+		if 5 < consumption && consumption < 25 {
 			break
 		}
 		fmt.Println("Ошибка! Расход должен быт ьв диапазоне от 5 до 25 литров на сотку")
