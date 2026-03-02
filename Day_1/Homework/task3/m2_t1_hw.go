@@ -19,13 +19,6 @@ func main() {
 	fmt.Println("Введите три числа для сортировки: ")
 	_, err := fmt.Scan(&x, &y, &z)
 
-	/*
-		Хочу вот так:
-		var testArr []string
-		_, err := fmt.Scan(&testArr)
-		fmt.Printf("Тестовый массив: %v\n", testArr)
-	*/
-
 	if err != nil {
 		return
 	}
