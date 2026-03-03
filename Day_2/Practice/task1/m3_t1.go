@@ -17,7 +17,10 @@ func main() {
 	var expression string
 
 	fmt.Print("Введите число: ")
-	fmt.Scan(&inputNumber)
+	_, err := fmt.Scan(&inputNumber)
+	if err != nil {
+		return
+	}
 
 	for inputNumber > 0 {
 		digit := inputNumber % 10
