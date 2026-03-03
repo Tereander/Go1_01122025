@@ -16,7 +16,7 @@ import (
 )
 
 // стоимость бенза
-const fuelPrice float64 = 48.0
+const fuelPrice float64 = 48
 
 var distance float64
 var consumption float64
