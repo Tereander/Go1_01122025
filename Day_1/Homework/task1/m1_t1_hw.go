@@ -30,7 +30,10 @@ func main() {
 	//вводим растояние и проверяем
 	for {
 		fmt.Println("Введите растояние от 50 до 10 000 км")
-		fmt.Scan(&distance)
+		_, err := fmt.Scan(&distance)
+		if err != nil {
+			return
+		}
 
 		if 50 < distance && distance < 10000 {
 			break
@@ -41,7 +44,10 @@ func main() {
 	//вводим расход топлива и проверяем
 	for {
 		fmt.Println("Введите расход топлива от 5л./100 км до 25л./100 км")
-		fmt.Scan(&consumption)
+		_, err := fmt.Scan(&consumption)
+		if err != nil {
+			return
+		}
 
 		if 5 < consumption && consumption < 25 {
 			break
