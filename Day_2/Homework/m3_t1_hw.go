@@ -70,6 +70,7 @@ func determineSequenceType(nums []int) string {
 			hasEqual = true
 		}
 	}
+
 	if hasIncrease && !hasDecrease && !hasEqual {
 		return "ASCENDING"
 	} else if hasIncrease && !hasDecrease && hasEqual {

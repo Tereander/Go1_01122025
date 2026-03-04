@@ -73,14 +73,14 @@ func main() {
 	wordSlice = append(wordSlice, "four")
 	fmt.Println("wordSlice:", wordSlice, "Length:", len(wordSlice), "Capacity:", cap(wordSlice))
 
-	// 7. Capacity(cap) или ёмкость слайса - это значение, которое показывает сколько итого элементов 
+	// 7. Capacity(cap) или ёмкость слайса - это значение, которое показывает сколько итого элементов
 	// можно хранить в слайсе, не выделяя дополнительной памяти
 	// Если нет места для нового элемента, то выделяется новая память, равная n,
 	// где n - это размер ёмкости до изменения, по общей формуле: n * 2
 	// cap = 3: 3 -> 6 -> 12 -> ...
 	numerics := []int{1, 2}
 	for i := 0; i < 200; i++ {
-		if i % 5 == 0 {
+		if i%5 == 0 {
 			fmt.Println("Current len:", len(numerics), "Current cap:", cap(numerics))
 		}
 		numerics = append(numerics, i)
@@ -99,19 +99,18 @@ func main() {
 
 	numSlice = append(numSlice, 3) // В этот момент numSlice больше не ссылается на numArr
 	numSlice[0] = 0
-
-	// Пример работы с внутренним устройством слайса
-	arrayAddress2 := uintptr(unsafe.Pointer(&numSlice[0]))
-	fmt.Printf("new numSlice address: 0x%x\n", arrayAddress2)
+	fmt.Printf("new numSlice address: 0x%x\n", arrayAddress0)
 	numSlicePtr := unsafe.SliceData(numSlice)
 	fmt.Printf("pointer: %p\n", numSlicePtr)
 
 	fmt.Println("numArr:", numArr)
 	fmt.Println("numSlice:", numSlice)
-	
+	// Пример работы с внутренним устройством слайса
+	arrayAddress0 = uintptr(unsafe.Pointer(&numSlice[0]))
+
 	// Добавление первого элемента через append
 	var numSliceChanged []int // nil
-	numSliceChanged = append(numSliceChanged, 3) 
+	numSliceChanged = append(numSliceChanged, 3)
 	fmt.Println("numSliceChanged:", numSliceChanged)
 	ptr := unsafe.SliceData(numSliceChanged)
 	fmt.Printf("pointer: %p, %v\n", ptr, ptr == nil)
@@ -143,6 +142,7 @@ func main() {
 		{10, 20, 30},
 		{},
 	}
+
 	fmt.Printf("Values of slice: %v, slice as is: %#v\n", twoDimSlice, twoDimSlice)
 
 	// 10. Слайсы рун
